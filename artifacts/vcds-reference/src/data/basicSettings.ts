@@ -60,4 +60,48 @@ export const basicSettings: BasicSettingsProcedure[] = [
 
   // Module 3 - ABS / Brakes (Critical procedure)
   { module: "03", category: "Brakes", name: "ABS Brake Bleeding (VCDS-Assisted) — CRITICAL PROCEDURE", prerequisites: "Fresh DOT 4 brake fluid (not mixed with old). Pressure bleeder system. VCDS connected. Vehicle on level ground. Ignition ON. Do NOT skip VCDS — gravity/manual bleeding leaves trapped air in ABS unit.", procedure: "SEQUENCE (follow exactly): 1. Right Rear wheel: Connect bleeder hose. Module 03 → Basic Settings → 'Brake bleeding: RR'. Click 'Do It'. Listen for ABS pump clicking (normal). Pump brake fluid 3–5 times until no air bubbles visible. 2. LEFT REAR: Repeat step 1 for LR. 3. RIGHT FRONT: Repeat for RF. 4. LEFT FRONT: Repeat for LF. Final check: Press brake pedal hard. Should be firm/solid, not spongy. If still spongy after all 4 wheels, repeat sequence again or check for brake line leaks." },
+
+  // Module 01 - Engine - Additional Procedures
+  { module: "01", category: "Engine Calibration", name: "Fuel Trim Relearning (Post-Service)", prerequisites: "After injector replacement, fuel pump replacement, or fuel pressure regulator work. Engine OFF.", procedure: "Module 01 → Adaptations → search 'fuel trim' or 'IDE00028'. Select Reset. VCDS clears both short-term and long-term fuel trims to 0%. Now drive 50+ miles on mixed highway and city driving (not highway-only). Fuel trims will gradually relearn proper values. Engine may feel slightly different for first 30 miles — normal." },
+  { module: "01", category: "Engine Calibration", name: "Oxygen Sensor Heater Test", prerequisites: "Engine OFF. Ignition ON. O2 sensor connectors accessible.", procedure: "Module 01 → Special Functions → 'Test O2 Sensor Heater' (or 'Component Test'). Select Bank 1 Sensor 1. VCDS activates heater element. Feel connector for warmth after 5 seconds (careful — HOT). Repeat for Bank 1 Sensor 2 (post-catalyst). If no heat: heater element failure, replace sensor." },
+  { module: "01", category: "Engine Calibration", name: "Cylinder Contribution Test", prerequisites: "Engine warm at idle. No active misfire codes.", procedure: "Module 01 → Special Functions → 'Cylinder Contribution Test' or 'Fuel Cut-Off Test'. VCDS sequentially cuts fuel to each cylinder. Listen to RPM drop: Healthy cylinder = 80–150 RPM drop. Weak cylinder = <40 RPM drop. No drop = cylinder completely misfiring. Mark any weak cylinders for diagnosis." },
+  { module: "01", category: "Engine Calibration", name: "Relative Compression Test", prerequisites: "Engine warm. Battery fully charged. Ignition ON, engine OFF.", procedure: "Module 01 → Special Functions → 'Compression Test' or 'Relative Compression'. VCDS disables fuel injection. Crank engine 3–5 seconds (do not let it start). System measures crankshaft speed variation between cylinders. Reports compression as % per cylinder. All cylinders should be within 5% of each other. Low cylinder (<70%) = ring/valve issue." },
+
+  // Module 02 - Transmission - Additional
+  { module: "02", category: "Transmission", name: "Transmission Fluid Contamination Check", prerequisites: "Engine running. Transmission warm. VCDS connected.", procedure: "Module 02 → Live Data → search 'fluid quality' or 'oxidation level'. Check color code: Green = good | Yellow = monitor | Red = fluid service overdue. If red: perform ATF service immediately. Poor fluid affects shift quality and damages transmission." },
+  { module: "02", category: "Transmission", name: "K1/K2 Clutch Slip Monitoring", prerequisites: "Engine running. Vehicle in D (or in gear, manual).", procedure: "Module 02 → Live Data → 'Clutch K1 slip' and 'Clutch K2 slip'. Normal = 0 RPM in steady state. Persistent slip = worn friction material or low fluid. If slip >100 RPM at cruising speed: clutch pack wearing, plan replacement soon." },
+
+  // Module 08 - Comfort - Additional
+  { module: "08", category: "Comfort", name: "Window Motor Force / Jam Protection Test", prerequisites: "All windows fully closed. Ignition ON.", procedure: "Module 08 → Special Functions → 'Test Window Motors'. Select window. VCDS runs motor until jam is detected. If motor stalls before window fully closed: jam detected (debris in track or motor weakness). Clean tracks or replace motor." },
+  { module: "08", category: "Comfort", name: "Door Lock Actuator Solenoid Test", prerequisites: "Ignition ON. Door accessible.", procedure: "Module 08 → Special Functions → 'Test Door Locks'. Select door. VCDS activates lock solenoid (listen for click). Repeat unlock test. No click = solenoid failure, replace actuator." },
+
+  // Module 09 - Lighting - Additional
+  { module: "09", category: "Lighting", name: "Headlight Leveling / AFS Motor Test", prerequisites: "Ignition ON. Engine OFF. Headlights powered ON.", procedure: "Module 09 → Special Functions → 'Test Headlight Leveling Motor' or 'AFS Motor Test'. VCDS cycles motor through full range. Motor should move smoothly. If stalls or jerks: motor alignment or mechanical jam. Check solenoid connectors." },
+  { module: "09", category: "Lighting", name: "Brake Light / Turn Signal Bulb Test", prerequisites: "Ignition ON. No battery drain concern.", procedure: "Module 09 → Special Functions → 'Test Lamps' → Select brake light, turn signal, or hazard. VCDS activates bulbs. Listen for bulb failure codes or check physical bulbs. Replace any failed bulbs." },
+
+  // Module 13 - ACC - Additional
+  { module: "13", category: "ACC", name: "Radar Sensor Orientation & Mounting Check", prerequisites: "Vehicle on level surface. No nearby metal objects. Ignition ON.", procedure: "Module 13 → Special Functions → 'Sensor Orientation Test'. Verify mounting bracket is straight and secure. Check for loose bolts or corrosion. Misalignment often caused by accident damage to bumper mounting." },
+  { module: "13", category: "ACC", name: "Front Assist Function Test", prerequisites: "Parking lot or empty area. Object 5+ meters away. Ignition ON. Car stationary.", procedure: "Module 13 → Special Functions → 'Front Assist Test'. System tests object detection logic. Object should appear on display. If no detection: sensor may be blind or misaligned." },
+
+  // Module 17 - Cluster - Additional
+  { module: "17", category: "Cluster", name: "Instrument Cluster Self-Test", prerequisites: "Ignition ON. VCDS connected.", procedure: "Module 17 → Special Functions → 'Display Test' or 'Self-Test'. Cluster will cycle all needles, display all segments. Any stuck needles or dark pixels = hardware fault. Usually requires cluster replacement." },
+  { module: "17", category: "Cluster", name: "Odometer Mileage Verification", prerequisites: "VCDS connected. Ignition ON.", procedure: "Module 17 → Live Data → search 'odometer' or 'total mileage'. Verify displayed mileage matches actual odometer reading. Discrepancy >10 km = EEPROM write error or module issue." },
+
+  // Module 19 - Gateway - Additional
+  { module: "19", category: "Network", name: "CAN Bus Diagnostics and Module Scan", prerequisites: "Vehicle fully stationary. Ignition ON. All doors closed.", procedure: "Module 19 → Special Functions → 'CAN Diagnostics' or 'Module Installation List'. Scan shows all detected modules. Missing modules appear as 'Not Found'. If module is missing: check CAN wiring, check module connector, verify module power." },
+
+  // Module 36 - Seats - Additional
+  { module: "36", category: "Seat Motors", name: "Electric Seat Motor Test", prerequisites: "Seat unoccupied. Ignition ON.", procedure: "Module 36 → Special Functions → 'Test Seat Motors'. Select function (forward/back, up/down, etc.). Motor should move smoothly. Stalling = motor overload or gearbox jam. Check for mechanical obstruction." },
+
+  // Module 44 - Steering - Additional
+  { module: "44", category: "Steering", name: "EPS Motor Current Draw Test", prerequisites: "Ignition ON. Engine OFF. Steering wheel accessible.", procedure: "Module 44 → Live Data → 'EPS motor current'. Gently turn steering wheel left/right. Current should jump from <0.5A to 5–25A depending on steering load. Abnormally high current (>30A) = motor stalling or power issue." },
+
+  // Module 5F - Infotainment - Additional
+  { module: "5F", category: "Head Unit", name: "MMI / Head Unit Reset and Reboot", prerequisites: "Ignition ON or ACC mode (12V powered).", procedure: "Module 5F → Special Functions → 'Restart Head Unit' or hold power button 10+ seconds. System reboots. Takes 2–5 minutes. During reboot: system re-initializes CAN communication, loads user settings. Fixes many software glitches." },
+
+  // Module 61 - Battery - Additional
+  { module: "61", category: "Battery", name: "Battery Voltage and Charging System Test", prerequisites: "Engine OFF. Battery terminal voltage accessible.", procedure: "Module 61 → Live Data → 'Battery voltage'. Engine OFF: should be 12.6–13.5V. Start engine: should rise to 13.2–14.8V (alternator charging). If voltage <12V engine off or >15V engine running: charging system fault. Check alternator output." },
+
+  // Module 76 - PDC - Additional
+  { module: "76", category: "Parking Sensors", name: "Parking Sensor Sonar Test / Distance Check", prerequisites: "Ignition ON. Sensors accessible. No obstacles directly behind.", procedure: "Module 76 → Special Functions → 'Test Sensors' → select rear (or front). VCDS activates sensors. Slowly bring hand toward bumper — beeping should increase in frequency. No beep: sensor dead or wiring fault." },
 ];

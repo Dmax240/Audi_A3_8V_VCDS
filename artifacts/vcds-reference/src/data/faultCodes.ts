@@ -93,4 +93,73 @@ export const faultCodes: FaultCode[] = [
   // Module 44 - Steering / EPS
   { code: "B2214", module: "44", description: "Steering angle sensor (SAS) range", cause: "Run SAS calibration. Check steering column connector.", severity: "warning" },
   { code: "B2222", module: "44", description: "EPS fault", cause: "Power steering may be stiff. Check for low voltage, connector issues.", severity: "warning" },
+
+  // Module 08 - Comfort / BCM - Additional
+  { code: "U1001", module: "08", description: "CAN communication fault: Module 01", cause: "Loss of CAN signal from engine module. Check CAN bus wiring at battery or module connectors.", severity: "warning" },
+  { code: "U1002", module: "08", description: "CAN communication fault: Module 02", cause: "Loss of CAN signal from transmission module. Check CAN bus integrity.", severity: "warning" },
+  { code: "U1003", module: "08", description: "CAN communication fault: Module 03", cause: "Loss of CAN signal from brakes module. Check gateway module 19.", severity: "warning" },
+  { code: "C0201", module: "08", description: "Window motor fault: front left", cause: "Window motor seized or wiring fault. Test motor voltage at connector.", severity: "warning" },
+  { code: "C0202", module: "08", description: "Window motor fault: front right", cause: "Same as C0201 for front right window.", severity: "warning" },
+  { code: "C0203", module: "08", description: "Window motor fault: rear left", cause: "Same as C0201 for rear left window.", severity: "warning" },
+  { code: "C0204", module: "08", description: "Window motor fault: rear right", cause: "Same as C0201 for rear right window.", severity: "warning" },
+  { code: "B1100", module: "08", description: "Door lock actuator fault: driver", cause: "Lock solenoid failure. Check connector, test solenoid current draw.", severity: "warning" },
+  { code: "B1101", module: "08", description: "Door lock actuator fault: passenger", cause: "Same as B1100 for passenger side.", severity: "warning" },
+
+  // Module 09 - Lighting - Additional
+  { code: "B1060", module: "09", description: "Headlight xenon ballast fault", cause: "HID ballast failure. Bulb also may be end-of-life. Replace bulb first, then ballast.", severity: "warning" },
+  { code: "B1061", module: "09", description: "LED headlight driver fault", cause: "LED module failure. Usually requires full headlight unit replacement.", severity: "warning" },
+  { code: "B1151", module: "09", description: "Brake light circuit fault", cause: "Brake light switch, wiring, or bulb failure. Test switch activation with foot brake.", severity: "warning" },
+  { code: "B1200", module: "09", description: "Turn signal bulb fault", cause: "Burned-out bulb or wiring issue. Check all turn signal bulbs front/rear.", severity: "info" },
+  { code: "B1259", module: "09", description: "DRL module communication fault", cause: "DRL control module failure or wiring issue. Headlights still work.", severity: "warning" },
+
+  // Module 13 - ACC - Additional
+  { code: "01568", module: "13", description: "Radar sensor performance degradation", cause: "Sensor may be partially blocked or misaligned. Check bumper area for damage.", severity: "warning" },
+  { code: "01569", module: "13", description: "Radar sensor temperature out of range", cause: "Sensor overheating or extremely cold. Check mounting, ensure no heat source nearby.", severity: "warning" },
+  { code: "01567", module: "13", description: "Front Assist system malfunction", cause: "Related to radar. Run sensor initialization and calibration sequence.", severity: "warning" },
+
+  // Module 15 - Airbag - Additional
+  { code: "B1003", module: "15", description: "Airbag control module software fault", cause: "Module firmware corruption or update issue. Module replacement may be needed.", severity: "critical" },
+  { code: "B1012", module: "15", description: "Passenger airbag disable switch fault", cause: "Occupant detection sensor under passenger seat failure.", severity: "warning" },
+  { code: "B1014", module: "15", description: "Seatbelt pretensioner passenger circuit", cause: "Passenger side pretensioner wiring or component fault.", severity: "critical" },
+  { code: "B1015", module: "15", description: "Crash event data recorded", cause: "Vehicle has been in recorded crash. Data must be cleared after airbag replacement.", severity: "info" },
+
+  // Module 16 - KESSY - Additional
+  { code: "B2810", module: "16", description: "Key fob receiver fault", cause: "Receiver module in car failure. Fob will not communicate. No radio signal fault.", severity: "warning" },
+  { code: "B2815", module: "16", description: "Key fob communication loss", cause: "Key battery dead or fob damaged. Replace fob battery first.", severity: "warning" },
+  { code: "B2820", module: "16", description: "KESSY module internal fault", cause: "Module hardware or software failure. Immobilizer may be affected.", severity: "critical" },
+
+  // Module 17 - Cluster - Additional
+  { code: "B1003", module: "17", description: "Instrument cluster firmware fault", cause: "Software corruption. Try power cycle first. Module swap if persists.", severity: "warning" },
+  { code: "B1051", module: "17", description: "Instrument cluster display fault", cause: "LCD/LED display failure. Partial or full display loss.", severity: "warning" },
+  { code: "B1052", module: "17", description: "Odometer write protection fault", cause: "EEPROM memory error. Odometer reading may be lost.", severity: "warning" },
+
+  // Module 19 - CAN Gateway - Additional
+  { code: "U0001", module: "19", description: "CAN bus high fault", cause: "CAN bus voltage issue. Check power supply to gateway.", severity: "warning" },
+  { code: "U0002", module: "19", description: "CAN bus low fault", cause: "CAN bus shorted to ground. Find short in wiring.", severity: "critical" },
+  { code: "U0003", module: "19", description: "CAN bus message timeout", cause: "Module missing from network or not responding. Check for disconnected modules.", severity: "warning" },
+
+  // Module 44 - Steering - Additional
+  { code: "B2500", module: "44", description: "EPS control module power fault", cause: "Low voltage or power relay issue. Check 12V supply to EPS module.", severity: "critical" },
+  { code: "B2501", module: "44", description: "EPS motor overcurrent", cause: "Motor stalled or seized. Avoid heavy steering until repaired.", severity: "warning" },
+
+  // Module 5F - Infotainment - Additional
+  { code: "U0211", module: "5F", description: "Infotainment module communication fault", cause: "Loose connector or module failure. Recheck power and CAN connections.", severity: "warning" },
+  { code: "B1500", module: "5F", description: "Head unit display fault", cause: "LCD/OLED screen failure or backlight issue.", severity: "warning" },
+  { code: "B1501", module: "5F", description: "HDD/SSD storage fault", cause: "Navigation hard drive failure. System may lose maps/settings.", severity: "warning" },
+
+  // Module 61 - Battery - Additional
+  { code: "U0100", module: "61", description: "Battery voltage out of range", cause: "Low battery voltage. Charging system issue or dead battery.", severity: "critical" },
+  { code: "U0101", module: "61", description: "Battery voltage too high", cause: "Alternator overcharging. Voltage regulator fault.", severity: "warning" },
+  { code: "U0102", module: "61", description: "Battery state of health low", cause: "Battery aging. Capacity dropping. Plan replacement soon.", severity: "info" },
+
+  // Module 76 - PDC - Additional
+  { code: "C1901", module: "76", description: "Parking sensor circuit fault: front left", cause: "Sensor wiring, connector, or sensor failure. Check wiring at sensor.", severity: "warning" },
+  { code: "C1902", module: "76", description: "Parking sensor circuit fault: front right", cause: "Same as C1901 for front right.", severity: "warning" },
+  { code: "C1903", module: "76", description: "Parking sensor circuit fault: rear left", cause: "Same as C1901 for rear left.", severity: "warning" },
+  { code: "C1904", module: "76", description: "Parking sensor circuit fault: rear right", cause: "Same as C1901 for rear right.", severity: "warning" },
+
+  // Module 0E - Camera - Additional
+  { code: "01280", module: "0E", description: "Forward camera not calibrated", cause: "Camera calibration required. Run lane assist camera calibration procedure.", severity: "warning" },
+  { code: "01281", module: "0E", description: "Rear camera image fault", cause: "Rear camera wiring, connector, or sensor failure. Check connector at bumper.", severity: "warning" },
+  { code: "01282", module: "0E", description: "Windshield condensation detected", cause: "Camera lens fogged. Not a fault — usually clears on its own.", severity: "info" },
 ];

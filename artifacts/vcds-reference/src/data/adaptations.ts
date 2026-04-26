@@ -87,4 +87,65 @@ export const adaptations: Adaptation[] = [
   { module: "76", category: "Sensors", channel: "Rear parking sensors: enable", default: "Active", options: "Active / Inactive", effect: "Disable rear sensors if they malfunction. Standard on most A3s." },
   { module: "76", category: "Display", channel: "PDC display mode", default: "Graphic + Audio", options: "Graphic only / Audio only / Graphic + Audio", effect: "How parking sensor feedback is displayed/played." },
   { module: "76", category: "Display", channel: "PDC: active on reverse only", default: "Active", options: "Active / Inactive", effect: "If Inactive, PDC activates in Drive/Park too (high sensitivity mode)." },
+  { module: "76", category: "Sensitivity", channel: "Parking sensor sensitivity level", default: "Medium", options: "Low / Medium / High", effect: "How sensitive sensors are to objects. High = earlier warning/beeping at distance." },
+  { module: "76", category: "Display", channel: "PDC: sonar volume", default: "Medium", options: "Off / Low / Medium / High", effect: "Beep volume when object detected. Mute disables audio warnings." },
+
+  // Module 01 - Engine - Additional Adaptations
+  { module: "01", category: "Emissions", channel: "Diesel particulate filter regeneration mode", default: "Automatic", options: "Automatic / Manual", effect: "DPF regen timing. N/A for TSI gasoline engine." },
+  { module: "01", category: "Fuel", channel: "Fuel octane rating", default: "95 RON", options: "91 / 95 / 98 / 100+ RON", effect: "Tell ECM your fuel grade. Affects ignition timing and knock detection." },
+
+  // Module 02 - Transmission - Additional
+  { module: "02", category: "Transmission", channel: "Kick-down sensitivity", default: "Standard", options: "Soft / Standard / Aggressive", effect: "How responsive transmission is to pedal input. Aggressive = quicker downshift." },
+  { module: "02", category: "Transmission", channel: "Manual mode: downshift blip", default: "Active", options: "Active / Inactive", effect: "Rev-match blip when downshifting in manual mode. Smooth shift." },
+  { module: "02", category: "Transmission", channel: "Launch control: enable", default: "Inactive", options: "Active / Inactive", effect: "Optimized launch from standstill in sport mode (DSG only)." },
+
+  // Module 03 - ABS / Brakes - Additional
+  { module: "03", category: "ABS", channel: "ABS activation threshold", default: "Standard", options: "Low / Standard / High", effect: "How aggressively ABS engages. Standard = best for most driving." },
+  { module: "03", category: "EPB", channel: "Electronic parking brake: auto-hold on slope", default: "Active", options: "Active / Inactive", effect: "EPB auto-locks vehicle on hillside when in Drive. Release with accelerator." },
+
+  // Module 08 - Comfort - Additional
+  { module: "08", category: "Comfort", channel: "Approach unlock: activate proximity sensor", default: "Active", options: "Active / Inactive", effect: "Unlock when key approaches. Can disable if fob acts erratically." },
+  { module: "08", category: "Comfort", channel: "Door unlock: driver side priority", default: "Active", options: "Active / Inactive", effect: "First fob press unlocks driver door only. Subsequent presses = all doors." },
+  { module: "08", category: "Comfort", channel: "Light activation duration on unlock", default: "30 seconds", options: "0 / 10 / 20 / 30 / 60 seconds", effect: "Interior light duration after unlock. 0 = lights don't activate." },
+
+  // Module 09 - Lighting - Additional
+  { module: "09", category: "Lighting", channel: "Ambient light threshold: day/night mode", default: "7000 lux", options: "3000 / 7000 / 12000 lux", effect: "Lux level at which system switches from day to night lighting mode." },
+  { module: "09", category: "Lighting", channel: "Fog light behavior: turn signal activation", default: "Inactive", options: "Active / Inactive", effect: "Fog lights automatically disable when turn signal activates (EU regulation)." },
+  { module: "09", category: "Lighting", channel: "Rear fog light: activation mode", default: "Manual only", options: "Manual only / Auto on rain", effect: "Auto activation uses rain sensor to trigger rear fog light." },
+
+  // Module 13 - ACC - Additional
+  { module: "13", category: "ACC", channel: "Minimum following distance preset", default: "Medium (2 seconds)", options: "Close (1 sec) / Medium (2 sec) / Far (3 sec)", effect: "Default distance maintained from vehicle ahead. User can adjust while driving." },
+  { module: "13", category: "Front Assist", channel: "Collision avoidance: brake strength", default: "Standard", options: "Soft / Standard / Strong", effect: "How hard Front Assist brakes when collision imminent." },
+  { module: "13", category: "Front Assist", channel: "Warning distance: activation range", default: "80 meters", options: "50 / 80 / 120 meters", effect: "How far ahead system detects stationary objects before warning." },
+
+  // Module 17 - Cluster - Additional
+  { module: "17", category: "Display", channel: "Speed limit warning: visual", default: "Active", options: "Active / Inactive", effect: "Display recognized speed limit on dashboard (requires camera)." },
+  { module: "17", category: "Display", channel: "Fuel consumption display: units", default: "L/100km", options: "L/100km / MPG", effect: "Display fuel economy in metric or imperial units." },
+  { module: "17", category: "Display", channel: "Digital speedometer: precision", default: "5 km/h increments", options: "1 / 5 / 10 km/h increments", effect: "How detailed speed is displayed on digital cluster." },
+
+  // Module 19 - Gateway - Additional
+  { module: "19", category: "CAN Bus", channel: "Module installation list: update", default: "Automatic", options: "Automatic / Manual refresh", effect: "Gateway periodically scans for newly installed modules." },
+
+  // Module 36 - Seats - Additional
+  { module: "36", category: "Seat Position", channel: "Easy entry: mirror dip on unlock", default: "Active", options: "Active / Inactive", effect: "Both side mirrors tilt down for easier entry when easy entry engages." },
+  { module: "36", category: "Seat Position", channel: "Easy exit: seat height adjustment", default: "Inactive", options: "Active / Inactive", effect: "Seat raises slightly on exit for easier standing up (if lumbar seat)." },
+
+  // Module 44 - Steering - Additional
+  { module: "44", category: "Steering", channel: "Steering: one-hand turn threshold", default: "Standard", options: "Sensitive / Standard / Insensitive", effect: "How much steering angle is needed to trigger lane change assist." },
+  { module: "44", category: "Steering", channel: "Lane keep assist: intervention strength", default: "Mild", options: "Mild / Medium / Strong", effect: "How forcefully lane keep assist corrects steering to center lane." },
+
+  // Module 5F - Infotainment - Additional
+  { module: "5F", category: "Phone", channel: "Phone integration: auto-answer on steering wheel", default: "Inactive", options: "Active / Inactive", effect: "Answer incoming calls by pressing steering wheel button." },
+  { module: "5F", category: "Audio", channel: "Bluetooth audio: codec preference", default: "Auto", options: "Auto / aptX / LDAC / SBC", effect: "Bluetooth audio quality. Auto = highest supported by both devices." },
+  { module: "5F", category: "Display", channel: "Night mode: automatic activation", default: "Active", options: "Active / Inactive", effect: "Switch to dark UI automatically at dusk. Respects manual selection." },
+  { module: "5F", category: "Navigation", channel: "Voice guidance: language", default: "English (US)", options: "20+ languages", effect: "Navigation voice language. Independent of system language." },
+
+  // Module 61 - Battery - Additional
+  { module: "61", category: "Battery", channel: "Battery disconnect monitoring", default: "Active", options: "Active / Inactive", effect: "Warn if battery terminal loosens or connection fails." },
+  { module: "61", category: "Start-Stop", channel: "Start-stop: temperature threshold", default: "-7°C", options: "-20 / -7 / 0 / 5°C", effect: "Disable start-stop below this ambient temperature to preserve battery." },
+  { module: "61", category: "Start-Stop", channel: "Start-stop: battery SoH minimum", default: "50%", options: "30% / 50% / 70%", effect: "Disable start-stop if battery health drops below threshold." },
+
+  // Module 0E - Camera - Additional (if equipped)
+  { module: "0E", category: "Camera", channel: "Camera: brightness adjustment", default: "Auto", options: "Auto / Manual", effect: "Let camera auto-adjust brightness or lock to manual setting." },
+  { module: "0E", category: "Camera", channel: "Rear camera: display delay", default: "2 seconds", options: "0 / 1 / 2 / 5 seconds", effect: "Delay before rear camera image displays after shifting to Reverse." },
 ];

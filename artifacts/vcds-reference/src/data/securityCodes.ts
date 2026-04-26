@@ -21,4 +21,16 @@ export const securityCodes: SecurityCode[] = [
   { module: "61", moduleName: "Battery Management", codes: "None required", purpose: "Battery registration and all BMS functions." },
   { module: "76", moduleName: "Parking Aid", codes: "None required", purpose: "All parking sensor functions." },
   { module: "0E", moduleName: "Camera", codes: "None required", purpose: "Camera calibration and settings." },
+  { module: "65", moduleName: "TPMS Receiver", codes: "None required", purpose: "TPMS sensor learning and settings (if separate module)." },
+  { module: "53", moduleName: "Electronic Parking Brake", codes: "None required", purpose: "EPB service mode and motor control (may be in Module 03)." },
+
+  // Additional codes and alternates for common modules
+  { module: "01-alt1", moduleName: "Engine Control (Alternate Code 1)", codes: "12233", purpose: "Injector IMA code. Specialized tuning access." },
+  { module: "01-alt2", moduleName: "Engine Control (Alternate Code 2)", codes: "79153", purpose: "Injector IMA code variant. Use if 27971 fails." },
+  { module: "02-alt1", moduleName: "Transmission (Alternate Code 1)", codes: "01295", purpose: "DSG service code. Try if 01138 fails." },
+  { module: "02-alt2", moduleName: "Transmission (Alternate Code 2)", codes: "01972", purpose: "DSG alternate service code variant." },
+  { module: "02-alt3", moduleName: "Transmission (Alternate Code 3)", codes: "02537", purpose: "Additional DSG unlock code for specific adaptations." },
+  { module: "02-alt4", moduleName: "Transmission (Auto-Hold)", codes: "20103", purpose: "Auto-hold feature unlock code (shared with lighting)." },
+  { module: "03-alt1", moduleName: "ABS / Brakes (Alternate Code)", codes: "11966", purpose: "ABS unlock code variant. Try if 40168 fails." },
+  { module: "17-alt1", moduleName: "Instrument Cluster (Alternate Code)", codes: "38041", purpose: "Service interval and advanced cluster channels." },
 ];

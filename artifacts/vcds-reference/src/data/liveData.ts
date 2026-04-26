@@ -120,4 +120,68 @@ export const liveDataChannels: LiveDataChannel[] = [
   { module: "13", channel: "Radar field of view", description: "Radar sensor operational range", unit: "m", normalValues: "Typical: 0–160m ahead of vehicle" },
   { module: "13", channel: "Target speed", description: "Speed of target vehicle being followed", unit: "km/h", normalValues: "0–160 km/h (varies by region)" },
   { module: "13", channel: "ACC status", description: "ACC system operational state", unit: "—", normalValues: "Off / Standby / Active / Paused (no target)" },
+
+  // Module 01 - Engine - Additional channels
+  { module: "01", channel: "IDE00002", description: "Engine load (pedal position)", unit: "%", normalValues: "Idle: 0–5 | Part throttle: 10–50 | WOT: 80–100" },
+  { module: "01", channel: "IDE00003", description: "Fuel pressure (low-side pump)", unit: "bar", normalValues: "4.5–5.5 bar constant. Below 4 = pump fault" },
+  { module: "01", channel: "IDE00006", description: "Intake manifold pressure (boost)", unit: "bar", normalValues: "Idle: 0.0–0.3 | Part throttle: 0.5–1.5 | Full boost: 1.5–2.0" },
+  { module: "01", channel: "IDE00008", description: "Absolute manifold pressure (MAP)", unit: "mbar", normalValues: "Depends on throttle and boost" },
+  { module: "01", channel: "IDE00015", description: "Lambda (air/fuel ratio)", unit: "—", normalValues: "1.0 = stoichiometric (ideal). 0.8–1.2 normal" },
+  { module: "01", channel: "IDE00020", description: "Ignition angle / spark timing", unit: "°", normalValues: "Varies by load. Retarded at high knock: 8–25°" },
+  { module: "01", channel: "IDE00030", description: "Long-term fuel trim bank 2", unit: "%", normalValues: "Normal: -10 to +10 | Problem: >±25%" },
+  { module: "01", channel: "IDE00040", description: "Cam position actual (exhaust)", unit: "°", normalValues: "Tracks target. Deviation >5° = VVT issue" },
+  { module: "01", channel: "IDE00046", description: "Cam timing: exhaust actual", unit: "°", normalValues: "Mirror of intake cam" },
+  { module: "01", channel: "IDE00180", description: "Cam timing: intake correction (adaptation)", unit: "°", normalValues: "±2° normal | ±4° warning | ±6° critical" },
+  { module: "01", channel: "IDE00183", description: "Cam-crank adaptation (exhaust)", unit: "°", normalValues: "New chain: near 0° | Wear: ±4–6°" },
+  { module: "01", channel: "IDE00184", description: "Cam-crank difference (timing chain wear)", unit: "°", normalValues: "Should be <2°. >4° = chain stretch evident" },
+  { module: "01", channel: "IDE00260", description: "Intake valve lift (continuous variable)", unit: "mm", normalValues: "Varies 0–10mm depending on load and RPM" },
+  { module: "01", channel: "IDE00340", description: "Fuel pressure demanded (GDI target)", unit: "bar", normalValues: "Idle: 40–60 | Cruise: 70–100 | WOT: 120–180" },
+  { module: "01", channel: "IDE00350", description: "Injection duration / pulse width", unit: "ms", normalValues: "Idle: 2–4ms | Cruise: 5–10ms | WOT: 15–30ms" },
+  { module: "01", channel: "IDE00395", description: "Accelerator pedal sensor 2", unit: "V", normalValues: "Rest: ~0.5V | Full: ~3.5V (redundancy check)" },
+  { module: "01", channel: "IDE00400", description: "Target torque (calculated by ECM)", unit: "Nm", normalValues: "Idle: 0 | Cruise: 100–150 | WOT: 200–260" },
+  { module: "01", channel: "IDE00401", description: "Delivered torque (actual)", unit: "Nm", normalValues: "Should match target within 10%" },
+
+  // Module 02 - Transmission - Additional channels
+  { module: "02", channel: "Shift pressure", description: "Hydraulic shift pressure", unit: "bar", normalValues: "Idle: 2–4 | Load: 8–15 | Shift: up to 25" },
+  { module: "02", channel: "Accelerator demand torque", description: "Transmission's requested engine torque", unit: "Nm", normalValues: "0–260 Nm range" },
+  { module: "02", channel: "Transmission oil viscosity", description: "Calculated ATF viscosity vs. temperature", unit: "cSt", normalValues: "Cold: 100+ | Warm: 5–10 cSt" },
+  { module: "02", channel: "Transmission efficiency", description: "Power transfer efficiency", unit: "%", normalValues: "Normal: 94–98% | Poor: <90%" },
+  { module: "02", channel: "Shift quality number", description: "Recorded shift smoothness metric", unit: "—", normalValues: "0–100 scale. Monitor for shift quality degradation" },
+
+  // Module 03 - Brakes - Additional channels
+  { module: "03", channel: "Brake pedal force", description: "Force applied to brake pedal", unit: "N", normalValues: "Light: 50–100 | Hard: 300–500 | Emergency: >600" },
+  { module: "03", channel: "Brake temperature: front left", description: "Front left brake rotor/caliper temperature", unit: "°C", normalValues: "Normal: 20–100 | Hot: 100–200 | Excessive: >250" },
+  { module: "03", channel: "Brake temperature: front right", description: "Front right brake temperature", unit: "°C", normalValues: "Same as FL" },
+  { module: "03", channel: "Brake temperature: rear left", description: "Rear left brake temperature", unit: "°C", normalValues: "Usually cooler than front, 20–150°C" },
+  { module: "03", channel: "Brake temperature: rear right", description: "Rear right brake temperature", unit: "°C", normalValues: "Same as RL" },
+  { module: "03", channel: "ABS system pressure", description: "ABS hydraulic system pressure", unit: "bar", normalValues: "At rest: 0–2 | During ABS event: 100–250" },
+  { module: "03", channel: "Brake fluid pressure", description: "Master cylinder pressure reading", unit: "bar", normalValues: "No brake: 0 | Light: 10–50 | Hard: 150–250" },
+  { module: "03", channel: "ESP intervention counter", description: "Number of ESP activations recorded", unit: "count", normalValues: "Increases during slippery driving" },
+  { module: "03", channel: "TCS activation status", description: "Traction control active state", unit: "—", normalValues: "Not active = 0 | Active = 1" },
+  { module: "03", channel: "Steering wheel torque sensor", description: "Driver steering input force", unit: "Nm", normalValues: "Varies from 0 to ±15 Nm" },
+
+  // Module 09 - Lighting - Additional
+  { module: "09", channel: "Headlight relay status", description: "Main headlight power relay state", unit: "—", normalValues: "Off = 0 | On = 1" },
+  { module: "09", channel: "Turn signal duty cycle", description: "Turn signal blink pattern", unit: "%", normalValues: "European: ~50% duty cycle. Check if asymmetrical." },
+
+  // Module 19 - Gateway - Additional
+  { module: "19", channel: "CAN bus load", description: "CAN bus traffic utilization", unit: "%", normalValues: "Normal: <60% | High: 60–80% | Critical: >80%" },
+  { module: "19", channel: "Module count detected", description: "Number of modules detected on CAN", unit: "count", normalValues: "Typical A3 8V: 18–22 modules" },
+  { module: "19", channel: "CAN data error counter", description: "CAN protocol errors recorded", unit: "count", normalValues: "Should be 0. >10 = wiring/connection issue" },
+
+  // Module 36 - Seats - Additional
+  { module: "36", channel: "Seat heater: driver temperature", description: "Driver seat heater setting temperature", unit: "°C", normalValues: "Off / 35 / 40 / 45°C (if heated seats)" },
+  { module: "36", channel: "Seat heater: passenger temperature", description: "Passenger seat heater setting", unit: "°C", normalValues: "Same as driver" },
+  { module: "36", channel: "Seat position: height", description: "Seat cushion height position", unit: "mm", normalValues: "0–200mm range (if power seat)" },
+  { module: "36", channel: "Seat position: lumbar", description: "Lumbar support position", unit: "mm", normalValues: "0–100mm range (if adjustable lumbar)" },
+
+  // Module 5F - Infotainment - Additional
+  { module: "5F", channel: "Screen brightness", description: "Display brightness level", unit: "%", normalValues: "Manual: 0–100% | Auto: adjusts per ambient light" },
+  { module: "5F", channel: "Bluetooth: signal strength", description: "Connected Bluetooth device signal strength", unit: "dBm", normalValues: "Strong: >-50 | Good: -50–-70 | Weak: <-70" },
+
+  // Module 0E - Camera - Additional
+  { module: "0E", channel: "Camera image quality", description: "Video feed quality assessment", unit: "—", normalValues: "Good = 0 | Degraded = 1 | Failed = 2" },
+  { module: "0E", channel: "Camera temperature", description: "Camera module temperature", unit: "°C", normalValues: "Normal: 20–60°C | Hot: >80°C (may shutdown)" },
+  { module: "0E", channel: "Lane markings: left confidence", description: "Left lane marker detection confidence", unit: "%", normalValues: "High: >80% | Low: <50% (need calibration)" },
+  { module: "0E", channel: "Lane markings: right confidence", description: "Right lane marker detection confidence", unit: "%", normalValues: "Same as left" },
 ];
