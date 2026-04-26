@@ -1,0 +1,34 @@
+export interface BasicSettingsProcedure {
+  module: string;
+  name: string;
+  prerequisites: string;
+  procedure: string;
+  category?: string;
+}
+export const basicSettings: BasicSettingsProcedure[] = [
+  // Module 01
+  { module: "01", category: "Engine Calibration", name: "Throttle Body Adaptation (TBA)", prerequisites: "Engine OFF. Ignition ON. Engine WARM (90°C). No active fault codes.", procedure: "Engine off ignition on only. Click Do It. Throttle cycles open/closed audibly. ADP OK = complete. Duration: 10–30s. Run after cleaning throttle body or replacing it." },
+  { module: "01", category: "Engine Calibration", name: "Idle Speed Adaptation", prerequisites: "Engine RUNNING. Fully warm (90°C). All electrical loads OFF. Vehicle stationary.", procedure: "Runs 30–90 seconds at idle. RPM may fluctuate ±50 RPM. ADP OK when complete. Result: stable warm idle at 620–720 RPM." },
+  { module: "01", category: "Engine Calibration", name: "Fuel Trim Reset", prerequisites: "Can be cold or warm. After injector, HPFP, or O2 sensor work.", procedure: "Completes in 2–5 seconds. IDE00028 resets to 0%. Drive 50+ miles mixed for relearn. Engine may feel different for 10–30 miles — normal." },
+  { module: "01", category: "Engine Calibration", name: "IMRC Adaptation", prerequisites: "Engine running warm. After IMRC sensor/manifold replacement or P2015.", procedure: "Flaps cycle full range (15–30 seconds). ADP OK. Post-check: IDE00401 matches IDE00400 across load range." },
+  { module: "01", category: "Engine Calibration", name: "Camshaft/Timing Chain Adaptation", prerequisites: "Engine running warm. After any timing chain or cam work.", procedure: "Runs 30–120 seconds at idle. ECM samples cam-crank relationship. After: IDE00182 and IDE00184 should read near 0° on fresh chain." },
+  { module: "01", category: "Engine Calibration", name: "Cylinder Contribution Test", prerequisites: "Engine warm at idle. No active misfire codes.", procedure: "Cuts fuel to each cylinder individually. Measures RPM drop. Healthy cylinder: 80–150 RPM drop. Weak: less than 40 RPM drop. No drop: complete misfire on that cylinder." },
+  { module: "01", category: "Engine Calibration", name: "Relative Compression Test", prerequisites: "Engine warm. Battery fully charged. Ignition ON engine OFF.", procedure: "Disables injection. Crank engine 3–5 seconds. VCDS analyzes crankshaft speed variation. Reports relative compression per cylinder as percentage." },
+  // Module 02
+  { module: "02", category: "Transmission", name: "Transmission Adaptation Reset", prerequisites: "Security Access 01138. Engine running.", procedure: "Clears all learned shift data. Transmission may shift harshly for 200–500 miles while re-learning. Run after clutch replacement, mechatronic replacement, or fluid service when quality was degraded." },
+  { module: "02", category: "Transmission", name: "Clutch K1/K2 Touch Point Calibration", prerequisites: "Security Access 01138. Engine running. Selector in Park.", procedure: "Mandatory for new clutch pack data. Takes 90–120 seconds. Run after mechatronic replacement." },
+  { module: "02", category: "Transmission", name: "Selector Lever Position Learning", prerequisites: "Security Access 01138. Engine running.", procedure: "Follow VCDS prompts to cycle selector through all positions (P-R-N-D-S-M). Required after mechatronic replacement." },
+  { module: "02", category: "Transmission", name: "Fluid Service Reset", prerequisites: "After ATF service. Engine warm.", procedure: "Resets ATF quality counter. Run after every transmission fluid change." },
+  // Module 03
+  { module: "03", category: "Brakes", name: "Brake Bleeding (VCDS Assisted — CRITICAL)", prerequisites: "Fresh DOT 4 brake fluid. Pressure bleeder. HEX-V2 connected.", procedure: "Sequence: Right Rear → Left Rear → Right Front → Left Front. VCDS activates ABS pump to purge trapped air from MK100 IPB. You will hear clicking from ABS unit — normal. Must use VCDS — gravity bleeding alone leaves air in ABS unit." },
+  { module: "03", category: "Brakes", name: "SAS (Steering Angle Sensor) Calibration", prerequisites: "Vehicle on perfectly level surface. Wheels pointing straight ahead. Ignition ON.", procedure: "VCDS reads steering angle and sets current position as 0°. Required after: any wheel alignment, suspension work, steering component replacement, or when ESP seems to activate incorrectly." },
+  { module: "03", category: "Brakes", name: "G-Sensor Calibration", prerequisites: "Vehicle on perfectly level surface. Completely stationary.", procedure: "VCDS samples lateral and longitudinal sensors. Stores 0g reference on level ground. Duration: 15–30 seconds. Run after module replacement or if ESP activates on flat straight road." },
+  { module: "03", category: "Brakes", name: "EPB Service Mode (Electronic Parking Brake)", prerequisites: "Engine running. VCDS connected.", procedure: "Use 'Open rear brake pads' or 'Retract EPB motors' command. Rear caliper pistons retract for pad replacement. MUST close/re-initialize EPB after service." },
+  // Module 13
+  { module: "13", category: "ACC / Radar", name: "ACC Misalignment Fault Resolution (12-Step Sequence)", prerequisites: "All fault codes cleared. Flat level surface. 10m clear ahead. Engine running.", procedure: "1. Clear all Module 13 faults. 2. Open Module 13 Adaptations. 3. Set 'sensor operational state' to 0. 4. Save. 5. Clear faults again. 6. Close and reopen module. 7. Verify misalignment fault is gone. 8. Run 'Sensor factory reset' Basic Setting. 9. Run 'Sensor initialization'. 10. Drive 5+ mph briefly. 11. Return to flat surface, wheels straight. 12. Run 'Radar calibration' Basic Setting. Calibration status must show 'Calibrated' to complete." },
+  // Module 17
+  { module: "17", category: "Cluster", name: "Oil Service Reset", prerequisites: "Module 17 open. Security Access 11046.", procedure: "Basic Settings → 'Oil service reset'. Alternatively: Adaptation → 'Time since last oil change' → set to 0. Run after every engine oil and filter change." },
+  { module: "17", category: "Cluster", name: "TPMS Calibration", prerequisites: "All four tires inflated to correct cold pressure. Verify with quality gauge.", procedure: "Basic Settings → 'TPMS calibration'. Stores current pressures as reference. Drive 10+ miles at varied speeds. TPMS warning should extinguish within 10 miles." },
+  // Module 61
+  { module: "61", category: "Battery", name: "Battery Registration (MANDATORY)", prerequisites: "New battery installed. Note battery capacity (Ah) and type (AGM or standard).", procedure: "Module 61 → Adaptation → search 'battery'. Enter: battery capacity in Ah, battery type (AGM or EFB), and nominal voltage. This is MANDATORY after battery replacement — without it, the charging system treats the new battery as old and undercharges it. Start-stop will also malfunction." },
+];
