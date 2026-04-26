@@ -52,4 +52,72 @@ export const liveDataChannels: LiveDataChannel[] = [
   { module: "17", channel: "TPMS FR pressure", description: "Front right tire pressure", unit: "PSI", normalValues: "Same as FL" },
   { module: "17", channel: "TPMS RL pressure", description: "Rear left tire pressure", unit: "PSI", normalValues: "Check door label — may differ from front" },
   { module: "17", channel: "TPMS RR pressure", description: "Rear right tire pressure", unit: "PSI", normalValues: "Same as RL" },
+
+  // Module 08 - Comfort / BCM
+  { module: "08", channel: "Door FL status", description: "Front left door open/closed", unit: "—", normalValues: "Closed = 0 | Open = 1" },
+  { module: "08", channel: "Door FR status", description: "Front right door open/closed", unit: "—", normalValues: "Closed = 0 | Open = 1" },
+  { module: "08", channel: "Door RL status", description: "Rear left door open/closed", unit: "—", normalValues: "Closed = 0 | Open = 1" },
+  { module: "08", channel: "Door RR status", description: "Rear right door open/closed", unit: "—", normalValues: "Closed = 0 | Open = 1" },
+  { module: "08", channel: "Trunk status", description: "Trunk open/closed", unit: "—", normalValues: "Closed = 0 | Open = 1" },
+  { module: "08", channel: "Hood status", description: "Hood open/closed", unit: "—", normalValues: "Closed = 0 | Open = 1" },
+  { module: "08", channel: "Window FL position", description: "Front left window position", unit: "%", normalValues: "0% = fully closed | 100% = fully open" },
+  { module: "08", channel: "Window FR position", description: "Front right window position", unit: "%", normalValues: "0% = fully closed | 100% = fully open" },
+  { module: "08", channel: "Window RL position", description: "Rear left window position", unit: "%", normalValues: "0% = fully closed | 100% = fully open" },
+  { module: "08", channel: "Window RR position", description: "Rear right window position", unit: "%", normalValues: "0% = fully closed | 100% = fully open" },
+  { module: "08", channel: "Sunroof position", description: "Sunroof tilt/slide position", unit: "%", normalValues: "0% = closed | 100% = fully open" },
+  { module: "08", channel: "Lock status: doors", description: "All door locks engaged state", unit: "—", normalValues: "Locked = 1 | Unlocked = 0" },
+  { module: "08", channel: "Rain sensor level", description: "Windshield water sensor sensitivity", unit: "—", normalValues: "No rain = 0 | Light rain = 1 | Heavy rain = 2" },
+
+  // Module 09 - Central Electronics / Lighting
+  { module: "09", channel: "DRL brightness", description: "Daytime running light intensity", unit: "%", normalValues: "Typically 70–100%. Depends on adaptation." },
+  { module: "09", channel: "Headlight switch position", description: "Manual headlight switch state", unit: "—", normalValues: "Off / Parking / Dipped / Main beam" },
+  { module: "09", channel: "Auto-light sensor level", description: "Ambient light sensor reading", unit: "lux", normalValues: "Day: >10,000 lux | Dusk: 100–10,000 | Night: <100" },
+  { module: "09", channel: "Wiper switch state", description: "Wiper control switch position", unit: "—", normalValues: "Off / Intermittent / Slow / Fast" },
+  { module: "09", channel: "Brake light relay", description: "Brake lights active (rear lights)", unit: "—", normalValues: "Not active = 0 | Active = 1" },
+  { module: "09", channel: "Hazard warning state", description: "Hazard lights active", unit: "—", normalValues: "Off = 0 | Flashing = 1" },
+
+  // Module 15 - Airbag / SRS
+  { module: "15", channel: "Driver airbag status", description: "Driver front airbag ready", unit: "—", normalValues: "Ready = 0 | Fault = 1 | Deployed = 2" },
+  { module: "15", channel: "Passenger airbag status", description: "Passenger front airbag ready", unit: "—", normalValues: "Ready = 0 | Fault = 1 | Deployed = 2 | Disabled = 3" },
+  { module: "15", channel: "Driver seatbelt status", description: "Driver seatbelt fastened", unit: "—", normalValues: "Fastened = 1 | Unfastened = 0" },
+  { module: "15", channel: "Passenger seatbelt status", description: "Passenger seatbelt fastened", unit: "—", normalValues: "Fastened = 1 | Unfastened = 0" },
+  { module: "15", channel: "Occupant detection: passenger", description: "Passenger seat occupancy sensor", unit: "—", normalValues: "Occupied = 1 | Empty = 0" },
+  { module: "15", channel: "Crash event counter", description: "Number of recorded crash events", unit: "count", normalValues: "Should be 0. > 0 means post-crash state." },
+
+  // Module 16 - Steering Column / KESSY
+  { module: "16", channel: "Key fob battery", description: "Remote key battery voltage", unit: "V", normalValues: "Normal: 2.8–3.1V | Low: <2.7V (replace battery)" },
+  { module: "16", channel: "KESSY approach: key distance", description: "Distance from vehicle to key", unit: "m", normalValues: "Approach unlock trigger: ~1.5m | Standard range: 0–3m" },
+  { module: "16", channel: "Steering wheel position: tilt", description: "Steering column tilt position", unit: "%", normalValues: "0% = fully down | 100% = fully tilted up" },
+  { module: "16", channel: "Steering wheel position: reach", description: "Steering column reach position", unit: "%", normalValues: "0% = closest | 100% = furthest away" },
+
+  // Module 44 - Steering / EPS / Lane Assist
+  { module: "44", channel: "Steering angle actual", description: "Current steering wheel angle", unit: "°", normalValues: "0° = straight | ±540° max depending on config" },
+  { module: "44", channel: "Steering angle target", description: "Target steering angle (after calibration)", unit: "°", normalValues: "Should match actual when wheels straight" },
+  { module: "44", channel: "EPS motor current", description: "Power steering motor current draw", unit: "A", normalValues: "Idle: <0.5A | Light assist: 1–5A | Full assist: 10–25A" },
+  { module: "44", channel: "EPS temperature", description: "Power steering system temperature", unit: "°C", normalValues: "Normal: 20–60°C | Hot: up to 80°C | Warning: >85°C" },
+  { module: "44", channel: "Lane assist: camera status", description: "Forward camera operational state", unit: "—", normalValues: "Ready = 0 | Not calibrated = 1 | Fault = 2" },
+  { module: "44", channel: "Lane assist: lane detected", description: "Lane markings detected by camera", unit: "—", normalValues: "Not detected = 0 | Detected = 1" },
+
+  // Module 5F - Infotainment / MMI
+  { module: "5F", channel: "Bluetooth: connected device count", description: "Number of paired Bluetooth devices", unit: "count", normalValues: "Typical: 0–3 devices paired" },
+  { module: "5F", channel: "Navigation: GPS signal strength", description: "GPS satellite signal quality", unit: "%", normalValues: "No signal = 0% | Good = >80%" },
+  { module: "5F", channel: "Head unit temperature", description: "MMI unit internal temperature", unit: "°C", normalValues: "Normal: 20–60°C. Avoid extended >70°C." },
+
+  // Module 61 - Battery Management
+  { module: "61", channel: "Battery voltage", description: "Main battery voltage", unit: "V", normalValues: "Engine off: 12.6–13.5V | Cranking: >9.5V | Charging: 13.2–14.8V" },
+  { module: "61", channel: "Battery current", description: "Battery charging/discharge current", unit: "A", normalValues: "Charging: +5 to +15A | Discharging: -0 to -5A | Heavy load: >-20A" },
+  { module: "61", channel: "Battery state of health", description: "Battery aging state", unit: "%", normalValues: ">80% = excellent | 70–80% = good | <70% = aging" },
+  { module: "61", channel: "Battery temperature", description: "Internal battery temperature", unit: "°C", normalValues: "Normal: 20–40°C | Hot: 40–60°C (start-stop disabled >60°C)" },
+  { module: "61", channel: "Start-stop cycles", description: "Total engine start-stop cycles since last battery registration", unit: "count", normalValues: "Increases throughout battery lifetime" },
+
+  // Module 76 - Parking Aid / PDC
+  { module: "76", channel: "Front sensor FL distance", description: "Front left parking sensor distance", unit: "cm", normalValues: "Far: 150cm | Close: 30cm | Alert: <15cm" },
+  { module: "76", channel: "Front sensor FR distance", description: "Front right parking sensor distance", unit: "cm", normalValues: "Same as FL" },
+  { module: "76", channel: "Rear sensor RL distance", description: "Rear left parking sensor distance", unit: "cm", normalValues: "Same as FL" },
+  { module: "76", channel: "Rear sensor RR distance", description: "Rear right parking sensor distance", unit: "cm", normalValues: "Same as FL" },
+
+  // Module 13 - Additional ACC
+  { module: "13", channel: "Radar field of view", description: "Radar sensor operational range", unit: "m", normalValues: "Typical: 0–160m ahead of vehicle" },
+  { module: "13", channel: "Target speed", description: "Speed of target vehicle being followed", unit: "km/h", normalValues: "0–160 km/h (varies by region)" },
+  { module: "13", channel: "ACC status", description: "ACC system operational state", unit: "—", normalValues: "Off / Standby / Active / Paused (no target)" },
 ];
