@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "VCDS A3 Reference"
+version = "1.0.0"
+id = "artifacts/vcds-reference"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22768
+
+[services.development]
+run = "pnpm --filter @workspace/vcds-reference run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/vcds-reference", "run", "build" ]
+publicDir = "artifacts/vcds-reference/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22768"
+BASE_PATH = "/"
